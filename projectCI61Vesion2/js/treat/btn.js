@@ -1,3 +1,5 @@
+
+// CÁC NÚT BẤM TRONG FORM ---------------------------------------------
 function appearDiv(obj){
     let btn = document.querySelectorAll(".design-place-element-label");
     let div = document.querySelectorAll(".design-place-element-input");
@@ -9,28 +11,33 @@ function appearDiv(obj){
             break;
         }
     }
-    console.log(place);
 
     div[place].classList.toggle("disappear");
-}
-
-let currentDiv;
-let form = document.querySelector(".js-design-form");
-console.log(form);
-
-function cha(){
-    console.log("cha");
-}
-
-function selected(obj){
-    console.log("con");
-    currentDiv = obj;
-    form.data = obj.style.cssText;
-    form.innerhtml = obj.innerHTML;
 }
 
 function addValue(){
     currentDiv.style.cssText = form.DataHTML.css;
     currentDiv.innerHTML = form.DataHTML.innerHTML;
-    console.log(form.DataHTML);
+}
+
+// --------------------------------------------------------------------
+
+// CÁC NÚT TRONG DESIGN -----------------------------------------------
+let currentDiv;
+let pickedDiv;
+let form = document.querySelector(".js-design-form");
+
+function cancelPicked(){
+    currentDiv = pickedDiv;
+    pickedDiv = null;
+    if(currentDiv == null){
+        form.data = "";
+        form.innerhtml = "";
+    }
+}
+
+function selected(obj){
+    pickedDiv = obj;
+    form.data = obj.style.cssText;
+    form.innerhtml = obj.innerHTML;
 }

@@ -1,4 +1,4 @@
-import StyleMyBox from "../treat/StyleMyBox.js";
+import Until from "../treat/Until.js";
 const $template = document.createElement("template");
 
 $template.innerHTML = `
@@ -113,14 +113,14 @@ export default class DesignForm extends HTMLElement {
 
   get DataHTML() {
     let result = {
-      css:"",
-      class:'',
-      innerHTML:''
+      css: "",
+      class: '',
+      innerHTML: ''
     }
     this.$inputs.forEach((element) => {
       result.css += element.DataHTML;
     })
-    result.innerHTML = StyleMyBox.getInforFromCss(this.$innerHTML.DataHTML);
+    result.innerHTML = Until.getInforFromCss(this.$innerHTML.DataHTML);
     return result;
   }
 
@@ -132,7 +132,7 @@ export default class DesignForm extends HTMLElement {
 
   attributeChangedCallback(attrName, oldValue, newValue) {
     if (attrName == "data") {
-      let myObj = StyleMyBox.formCssTextToCssObject(newValue);
+      let myObj = Until.formCssTextToCssObject(newValue);
       // console.log(myObj);
       this.$inputs.forEach((element) => {
         // console.log(element.csselement);

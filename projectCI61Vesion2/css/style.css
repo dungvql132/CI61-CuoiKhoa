@@ -1,11 +1,17 @@
 @import url(componentCSS/InputWrapper.css);
 @import url(componentCSS/DesignForm.css);
+@import url(componentCSS/MyPage.css);
 
 #desginning{
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100vh;
+}
+
+*{
+    box-sizing: border-box;
+    background-size: cover;
 }
 
 #design-place{
@@ -31,15 +37,8 @@
 
 .disappear{
     display: none !important;
-    /* color: ghostwhite; */
 }
 
-.test-div{
+.absolute{
     position: absolute;
-}
-
-.x{
-    border: 3px solid black;
-    height: 100px;
-    width: 100px;
 }

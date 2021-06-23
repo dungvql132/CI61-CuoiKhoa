@@ -9,10 +9,7 @@
   </head>
   <body>
     <div id="desginning">
-      <div id="design-place" onclick="cha()">
-          <div class="test-div" style="height: 100px; width: 100px; background-color: black; color: #ffffff; top: 100px;" onclick="selected(this)">so 1</div>
-          <div class="test-div" style="height: 100px; width: 200px; background-color: black; color: #ffffff; left: 200px;" onclick="selected(this)">so 2</div>
-      </div>
+      <div id="design-place" onclick="cancelPicked()"></div>
       <div id="form">
         <my-form class="js-design-form" data="height:100px;"></my-form>
         <button onclick="addValue()">luu</button>
@@ -20,5 +17,6 @@
     </div>
     <script src="./js/app.js" type="module"></script>
     <script src="./js/treat/btn.js"></script>
+    <script src="./js/class/Page.js" type="module"></script>
   </body>
 </html>

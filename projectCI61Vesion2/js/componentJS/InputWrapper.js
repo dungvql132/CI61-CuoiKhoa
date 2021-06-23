@@ -1,9 +1,10 @@
-import String from "../treat/String.js";
+import Until from "../treat/until.js";
+
 const $template = document.createElement("template");
 
 $template.innerHTML = `
     <div class="js-label"></div>
-    <input class="js-input" type="" value="" placeholder="">
+    <input class="js-input" type="" value="">
 `
 
 export default class InputWrapper extends HTMLElement {
@@ -17,14 +18,6 @@ export default class InputWrapper extends HTMLElement {
     }
 
     // getter and setter ----------------------------------------
-    get placeholder() {
-        return this.getAttribute("placeholder");
-    }
-
-    set placeholder(string) {
-        this.setAttribute("placeholder", string);
-    }
-
     get type() {
         return this.getAttribute("type");
     }
@@ -62,8 +55,8 @@ export default class InputWrapper extends HTMLElement {
     start() {
         this.$label.innerHTML = this.csselement;
         this.$input.type = this.type;
-        this.$input.value = String.fromPXtoNumber(this.value);
-        this.$input.placeholder = String.fromPXtoNumber(this.placeholder);
+        this.$input.value = Until.fromPXtoNumber(this.value);
+        this.$input.placeholder = Until.fromPXtoNumber(this.placeholder);
     }
 
     connectedCallback() {
@@ -78,20 +71,18 @@ export default class InputWrapper extends HTMLElement {
     attributeChangedCallback(attrName, oldValue, newValue) {
         if (attrName == "placeholder") {
             try {
-                this.$input.placeholder = String.fromPXtoNumber(newValue);
+                this.$input.placeholder = Until.fromPXtoNumber(newValue);
             } catch (error) {
 
             }
         } else if (attrName == "value") {
             try {
                 if(this.type == 'number'){
-                    this.$input.value = String.fromPXtoNumber(newValue);
+                    this.$input.value = Until.fromPXtoNumber(newValue);
                 }else if(this.type == 'color'){
-                    this.$input.value = String.fromRGBtoHEX(newValue);
+                    this.$input.value = Until.fromRGBtoHEX(newValue);
                 }else if (this.csselement == "background-image"){
-                    console.log("nen: "+newValue);
-                    console.log("link: "+ String.fromURLtoString(newValue));
-                    this.$input.value = String.fromURLtoString(newValue);
+                    this.$input.value = Until.fromURLtoString(newValue);
                 }else{
                     this.$input.value = newValue;
                 }
