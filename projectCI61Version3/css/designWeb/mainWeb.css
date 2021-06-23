@@ -1,0 +1,22 @@
+
+#design{
+    height: 100vh;
+    width: 100%;
+    border: 3px solid black;
+}
+
+.flex{
+    display: flex;
+}
+
+#design-area{
+    height: 100%;
+    width: 75%;
+    border: 3px solid black;
+}
+
+#design-form{
+    height: 100%;
+    width: 25%;
+    border: 3px solid black;
+}
