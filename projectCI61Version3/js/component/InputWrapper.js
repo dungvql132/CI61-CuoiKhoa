@@ -62,12 +62,12 @@ export default class InputWrapper extends HTMLElement {
         this.$input.type = this.getAttribute("type");
 
         this.$input.value = Processing.processInputWrapperIn(this.value, this.givedata, this.keepdata);
-        console.log(this.dataHTML);
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
         if (attrName == "value") {
             this.$input.value = Processing.processInputWrapperIn(this.value, this.givedata, this.keepdata);
+            // cài đặt value cho input
         }
     }
 }

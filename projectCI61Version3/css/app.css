@@ -1,4 +1,6 @@
 @import url(designWeb/mainWeb.css);
+@import url(component/InputWrapper.css);
+@import url(component/DesignForm.css);
 
 *{
     background-size: cover;

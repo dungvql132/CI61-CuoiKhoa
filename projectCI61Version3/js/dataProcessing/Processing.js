@@ -1,7 +1,8 @@
 export default class Processing {
-    constructor(){
+    constructor() {
 
     }
+    // chuyển giá trị px về number: ví dụ 100px -> 100, 100 -> 100
     static fromPXtoNumber(px) {
         if (typeof (px) == "number") {
             return px;
@@ -14,6 +15,7 @@ export default class Processing {
         }
     }
 
+    // chuyển giá trị rgb về hexa: ví dụ rgb(10,20,30) -> #0A131E
     static fromRGBtoHEX(rgb) {
         if (typeof (rgb) == "string") {
             if (rgb.charAt(0) == '#') {
@@ -35,14 +37,21 @@ export default class Processing {
         }
     }
 
+    // chuyển giá trị url về string: ví dụ url("http:google") -> http:google
     static fromURLtoString(url) {
         return url.substring(5, url.length - 2);
     }
 
+    // chuyển giá trị string về url: ví dụ http:google -> url("http:google")
     static fromStringtoURL(string) {
         return "url(" + string + ")";
     }
 
+    // chuyển 1 chuỗi cssText về object: ví dụ "height:100px; width:100px;" ->
+    // {
+    //     height : "100px",
+    //     width : "100px"
+    // }
     static formCssTextToCssObject(cssText) {
         let cssObject = {};
         let variable;
@@ -62,6 +71,7 @@ export default class Processing {
         return cssObject;
     }
 
+    // chuyển từ object sang dạng cssText
     static fromCssObjectToCssText(cssObject) {
         let cssText = "";
         for (const key in cssObject) {
@@ -70,6 +80,7 @@ export default class Processing {
         return cssText;
     }
 
+    // cộng 2 chuỗi cssText lại với nhau
     static updateCss(cssTextOld, cssTextAdd) {
         let newCssText = cssTextOld + cssTextAdd;
 
@@ -79,8 +90,8 @@ export default class Processing {
         return test.style.cssText;
     }
 
+    // xử lý giá trị đầu VÀO cho input-wrapper và input-dropdown
     static processInputWrapperIn(value, givedata, keepdata) {
-        console.log(givedata, keepdata);
         if (givedata == "string" && keepdata == "string") {
             return value;
         } else if (givedata == "px" && keepdata == "number") {
@@ -90,22 +101,40 @@ export default class Processing {
             return this.fromRGBtoHEX(value);
         } else if (givedata == "url" && keepdata == "string") {
             return this.fromURLtoString(value)
-        } else{
+        } else {
             return value;
         }
     }
 
-    static processInputWrapperOut(value, keepdata, returndata){
-        if (returndata == "string" && keepdata == "string") {
+    // xử lý giá trị đầu RA cho input-wrapper và input-dropdown
+    static processInputWrapperOut(value, givedata, keepdata) {
+        if (givedata == "string" && keepdata == "string") {
             return value;
-        } else if (returndata == "px" && keepdata == "number") {
+        } else if (givedata == "px" && keepdata == "number") {
             return value + "px";
-        } else if (returndata == "hexa" && keepdata == "hexa") {
+        } else if (givedata == "rgb" && keepdata == "hexa") {
             return this.fromRGBtoHEX(value);
-        } else if (returndata == "url" && keepdata == "string") {
+        } else if (givedata == "url" && keepdata == "string") {
             return this.fromStringtoURL(value);
-        } else{
+        } else {
             return value;
         }
+    }
+
+    // Chuyển data của input dropdown: ví dụ
+    // ["dung","dep","zai"] -> [<option>dung</option>, <option>dep</option>, <option>zai</option>]
+    static processInputDropdownIn(arr) {
+        let myArr = JSON.parse(arr);
+        let result = [];
+
+        if (myArr == null) {
+            return result;
+        }
+
+        for (let i = 0; i < myArr.length; i++) {
+            result.push(document.createElement("option"));
+            result[i].text = myArr[i];
+        }
+        return result;
     }
 }
