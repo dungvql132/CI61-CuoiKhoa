@@ -44,7 +44,7 @@ export default class InputWrapper extends HTMLElement {
 
 
     get dataHTML() {
-        let data = Processing.processInputWrapperOut(this.$input.value, this.keepdata, this.returndata);
+        let data = Processing.processInputWrapperOut(this.$input.value, this.givedata, this.keepdata);
         if (this.kindcss != null) {
             return this.kindcss + ":" + data + ";"
         } else {

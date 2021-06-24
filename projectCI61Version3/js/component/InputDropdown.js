@@ -35,6 +35,19 @@ export default class InputDropdown extends HTMLElement {
         this.setAttribute("value",string)
     }
 
+    get kindcss(){
+        return this.getAttribute("kindcss")
+    }
+
+    get dataHTML(){   
+        let data = Processing.processInputWrapperOut(this.$select.value, this.givedata, this.keepdata);
+        if (this.kindcss != null) {
+            return this.kindcss + ":" + data + ";"
+        } else {
+            return data;
+        }
+    }
+
     static get observedAttributes() {
         return ["data" , 'value', "text", "givedata", "keepdata", "kindcss"]
         // data là 1 mảng các giá trị cần được cho vào trong để chọn. Loại array, ví dụ ["dung","dep","zai"]
@@ -55,7 +68,6 @@ export default class InputDropdown extends HTMLElement {
 
         this.$label = this.querySelector(".js-label");
         this.$label.innerHTML = this.text;
-        console.log(this.text);
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {

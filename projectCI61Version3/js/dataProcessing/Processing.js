@@ -53,6 +53,8 @@ export default class Processing {
     //     width : "100px"
     // }
     static formCssTextToCssObject(cssText) {
+        if(cssText == null){    return {};    }
+        
         let cssObject = {};
         let variable;
 
@@ -90,14 +92,18 @@ export default class Processing {
         return test.style.cssText;
     }
 
+    // ================== INPUT WRAPPER =========================
     // xử lý giá trị đầu VÀO cho input-wrapper và input-dropdown
     static processInputWrapperIn(value, givedata, keepdata) {
+        if(value == "" || value == null){
+            return "";
+        }
+
         if (givedata == "string" && keepdata == "string") {
             return value;
         } else if (givedata == "px" && keepdata == "number") {
             return this.fromPXtoNumber(value);
         } else if (givedata == "rgb" && keepdata == "hexa") {
-            console.log(this.fromRGBtoHEX(value));
             return this.fromRGBtoHEX(value);
         } else if (givedata == "url" && keepdata == "string") {
             return this.fromURLtoString(value)
@@ -121,6 +127,7 @@ export default class Processing {
         }
     }
 
+    // ======================= DROP DOWN =========================
     // Chuyển data của input dropdown: ví dụ
     // ["dung","dep","zai"] -> [<option>dung</option>, <option>dep</option>, <option>zai</option>]
     static processInputDropdownIn(arr) {
@@ -137,4 +144,16 @@ export default class Processing {
         }
         return result;
     }
+
+    // ============  DESIGN FORM ==================
+    // Chuyển từ giá trị các thẻ input-wrapper thành style
+    static processDesignFormCssOut(inputs){
+        let result = '';
+        inputs.forEach((element) => {
+            result += element.dataHTML;
+        })
+        return result;
+    }
+
+
 }
