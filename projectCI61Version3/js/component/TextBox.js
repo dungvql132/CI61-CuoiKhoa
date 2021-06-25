@@ -64,13 +64,16 @@ export default class TextBox extends HTMLElement {
             Processing.preventMoveOut(this.position,this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth)
 
         })
-
-        this.addEventListener("mousemove", (event) => {
+        this.parentNode.addEventListener("mousemove", (event) => {
             let checkLimit = Processing.preventMoveOut(mouseMove(event.screenY,event.screenX),this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth);
             if(isCanMove() && checkLimit){
                 changeDataForm(this)
                 this.position = mouseMove(event.screenY,event.screenX);
             }
+        })
+
+        this.parentNode.addEventListener("mouseleave", ()=>{
+            mouseRelease();
         })
 
         this.addEventListener("mouseup", () => {
