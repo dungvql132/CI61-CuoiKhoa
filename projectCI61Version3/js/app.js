@@ -4,3 +4,5 @@ import Processing from "./dataProcessing/Processing.js";
 import FormData from "./data/FormData.js";
 import TextBox from "./component/TextBox.js";
 import DesignForm from "./component/DesignForm.js";
+
+console.log("phien ban chay tet ga");
