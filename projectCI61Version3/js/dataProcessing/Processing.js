@@ -155,5 +155,36 @@ export default class Processing {
         return result;
     }
 
+    // ===========TEXT BOX ==========================
+    // lấy về vị trí của text box từ cssText
+    static getPositionFromCssText(cssText){
+        let cssObj = this.formCssTextToCssObject(cssText);
+        let move = {
+            top : "",
+            left : ""
+        }
+
+        if(cssObj.top == null){
+            move.top = 0
+        }else{
+            move.top = this.fromPXtoNumber(cssObj.top)
+        }
+
+        if(cssObj.left == null){
+            move.left = 0
+        }else{
+            move.left = this.fromPXtoNumber(cssObj.left)
+        }
+        return JSON.stringify(move);
+    }
+
+    static getPositionCss(move){
+        let myMove = JSON.parse(move);
+        let cssPosition = ""
+        for (const key in myMove) {
+            cssPosition += key + ":" + myMove[key] + "px;";
+        }
+        return cssPosition;
+    }
 
 }

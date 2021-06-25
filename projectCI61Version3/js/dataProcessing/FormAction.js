@@ -21,11 +21,19 @@ let myForm = document.querySelector(".my-form");
 function whenClickTextBox(obj) {
     // console.log("con");
     pickedTextBox = obj;
+    changeDataForm(obj)
+    obj.addClass = 'text-box-picked';
+}
+
+function changeDataForm(obj) {
     myForm.data = obj.data;
 }
 
 function whenClickDesignArea() {
     // console.log("cha");
+    if(currentTextBox != null && currentTextBox != pickedTextBox){
+        currentTextBox.removeClass = 'text-box-picked';
+    }
     currentTextBox = pickedTextBox;
     pickedTextBox = null;
     if(currentTextBox == null){

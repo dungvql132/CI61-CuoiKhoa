@@ -1,14 +1,11 @@
 @import url(designWeb/mainWeb.css);
 @import url(component/InputWrapper.css);
 @import url(component/DesignForm.css);
+@import url(component/TextBox.css);
 
 *{
     background-size: cover;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-}
-
-.js-div{
-    position: absolute;
 }
