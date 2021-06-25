@@ -15,7 +15,7 @@ export default class TextBox extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data", "move"]
+        return ["data", "position"]
     }
 
     get data() {
@@ -26,21 +26,19 @@ export default class TextBox extends HTMLElement {
         this.setAttribute("data", string)
     }
 
-    get move() {
-        return this.getAttribute("move")
+    get position() {
+        return this.getAttribute("position")
     }
 
-    set move(string) {
-        this.setAttribute("move", string)
+    set position(string) {
+        this.setAttribute("position", string)
     }
 
     set addClass(string){
-        console.log("them class");
         this.$div.classList.add(string);
     }
 
     set removeClass(string){
-        console.log("xoa class");
         this.$div.classList.remove(string)
     }
 
@@ -62,13 +60,16 @@ export default class TextBox extends HTMLElement {
 
         this.addEventListener("mousedown", (event)=>{
             whenClickTextBox(this)
-            mouseDown(this.move,event.screenY,event.screenX);
+            mouseDown(this.position,event.screenY,event.screenX);
+            Processing.preventMoveOut(this.position,this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth)
+
         })
 
         this.addEventListener("mousemove", (event) => {
-            if(isCanMove()){
+            let checkLimit = Processing.preventMoveOut(mouseMove(event.screenY,event.screenX),this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth);
+            if(isCanMove() && checkLimit){
                 changeDataForm(this)
-                this.move = mouseMove(event.screenY,event.screenX);
+                this.position = mouseMove(event.screenY,event.screenX);
             }
         })
 
@@ -83,10 +84,10 @@ export default class TextBox extends HTMLElement {
             this.$div.innerHTML = myData.innerHTML;
             this.$div.style.cssText = myData.cssText;
 
-            if(this.move != Processing.getPositionFromCssText(myData.cssText)){
-                this.move = Processing.getPositionFromCssText(myData.cssText);    
+            if(this.position != Processing.getPositionFromCssText(myData.cssText)){
+                this.position = Processing.getPositionFromCssText(myData.cssText);    
             }
-        }else if ( attrName == "move"){
+        }else if ( attrName == "position"){
             let myData = JSON.parse(this.data);
             this.$div.style.cssText += Processing.getPositionCss(newValue);
             myData.cssText = this.$div.style.cssText;

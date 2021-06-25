@@ -159,32 +159,76 @@ export default class Processing {
     // lấy về vị trí của text box từ cssText
     static getPositionFromCssText(cssText){
         let cssObj = this.formCssTextToCssObject(cssText);
-        let move = {
+        let position = {
             top : "",
             left : ""
         }
 
         if(cssObj.top == null){
-            move.top = 0
+            position.top = 0
         }else{
-            move.top = this.fromPXtoNumber(cssObj.top)
+            position.top = this.fromPXtoNumber(cssObj.top)
         }
 
         if(cssObj.left == null){
-            move.left = 0
+            position.left = 0
         }else{
-            move.left = this.fromPXtoNumber(cssObj.left)
+            position.left = this.fromPXtoNumber(cssObj.left)
         }
-        return JSON.stringify(move);
+        return JSON.stringify(position);
     }
 
-    static getPositionCss(move){
-        let myMove = JSON.parse(move);
+    // lấy ra size từ cssText
+    // trả về dạng {height:100,width:100}
+    static getSizeFromCssText(cssText){
+        let cssObj = this.formCssTextToCssObject(cssText);
+        let size = {
+            height : "",
+            width : ""
+        }
+
+        if(cssObj.height == null){
+            size.height = 0
+        }else{
+            size.height = this.fromPXtoNumber(cssObj.height)
+        }
+
+        if(cssObj.width == null){
+            size.width = 0
+        }else{
+            size.width = this.fromPXtoNumber(cssObj.width)
+        }
+        return JSON.stringify(size);
+    }
+
+    // chuyển từ position sang dạng css
+    // {
+    //     top: 100,
+    //     left: 100
+    // }
+    // thành "top:100px;left:100px;"
+    static getPositionCss(position){
+        let myposition = JSON.parse(position);
         let cssPosition = ""
-        for (const key in myMove) {
-            cssPosition += key + ":" + myMove[key] + "px;";
+        for (const key in myposition) {
+            cssPosition += key + ":" + myposition[key] + "px;";
         }
         return cssPosition;
+    }
+
+    // ngăn chặn di thẻ div ra bên ngoài: đầu vào (position: lấy vị trí đích đến, cssText: lấy size, limit: giới hạn của khung cha)
+    static preventMoveOut(position,cssText, limitTop, limitLeft){
+        let myPosition = JSON.parse(position)
+        let size = JSON.parse(this.getSizeFromCssText(cssText))
+        if(Number(myPosition.top) <= 0 || Number(myPosition.left <= 0)){
+            return false;
+        }else if ((Number(myPosition.top) + Number(size.height) >= limitTop)){
+            return false;
+        }else if ((Number(myPosition.left) + Number(size.width) >= limitLeft)){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 }

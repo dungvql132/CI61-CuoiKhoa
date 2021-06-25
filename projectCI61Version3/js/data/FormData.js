@@ -6,7 +6,7 @@ export default class FormData{
     static _animation = ["dropdown","jump"];
     static animation = JSON.stringify(this._animation);
 
-    static _borderStyle = ["dashed","dotted","solid","double","groove"];
+    static _borderStyle = ["dashed","dotted","solid","double","groove","hidden"];
     static borderStyle = JSON.stringify(this._borderStyle);
 
     static _defaultTextBox = {

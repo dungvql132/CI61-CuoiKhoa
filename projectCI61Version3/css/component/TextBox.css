@@ -4,6 +4,9 @@
 }
 
 .js-div{
+    word-break: break-all;
+    /* overflow: hidden; */
+    background-size: cover;
     position: absolute;
     user-select: none;
 }

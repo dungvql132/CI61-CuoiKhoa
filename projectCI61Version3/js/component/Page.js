@@ -1,10 +1,12 @@
 const $template = document.createElement("template");
 
 $template.innerHTML = `
-
+    <div>
+    
+    </div>
 `
 
-export default class MyDiv extends HTMLElement{
+export default class Page extends HTMLElement{
     constructor(){
         super();
         // this.appendChild($template.content.cloneNode(true));
@@ -36,4 +38,4 @@ export default class MyDiv extends HTMLElement{
     }
 }
 
-window.customElements.define("my-div",MyDiv);
+window.customElements.define("page",Page);

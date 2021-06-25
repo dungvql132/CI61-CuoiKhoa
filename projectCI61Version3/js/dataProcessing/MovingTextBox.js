@@ -30,9 +30,6 @@ function mouseDown(move,mouseTop,mouseLeft) {
 
     textBox_Picked.left = Number(myMove.left);
     mouse_Picked.left = mouseLeft;
-
-    console.log(mouse_Picked);
-    console.log(textBox_Picked);
 }
 
 function mouseMove(mouseTop,mouseLeft) {
