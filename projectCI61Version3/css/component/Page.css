@@ -1,0 +1,7 @@
+.js-page{
+    width: 50%;
+    height: 100%;
+    border: 2px solid blue;
+    margin: auto;
+    position: relative;
+}

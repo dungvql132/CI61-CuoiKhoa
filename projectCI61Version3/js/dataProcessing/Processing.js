@@ -44,7 +44,7 @@ export default class Processing {
 
     // chuyển giá trị string về url: ví dụ http:google -> url("http:google")
     static fromStringtoURL(string) {
-        return "url(" + string + ")";
+        return "url(\"" + string + "\")";
     }
 
     // chuyển 1 chuỗi cssText về object: ví dụ "height:100px; width:100px;" ->
@@ -156,6 +156,21 @@ export default class Processing {
     }
 
     // ===========TEXT BOX ==========================
+
+    // Thêm hàm di chuyển cho Text Box
+    static addEventTextBox(obj){
+        obj.addEventListener("mousedown", (event) => {
+            whenClickTextBox(obj)
+            mouseDown(obj.position, event.screenY, event.screenX);
+            Processing.preventMoveOut(obj.position, obj.$div.style.cssText, obj.parentNode.clientHeight, obj.parentNode.clientWidth)
+
+        })
+
+        obj.addEventListener("mouseup", () => {
+            mouseRelease();
+        })
+    }
+
     // lấy về vị trí của text box từ cssText
     static getPositionFromCssText(cssText){
         let cssObj = this.formCssTextToCssObject(cssText);
@@ -218,17 +233,50 @@ export default class Processing {
 
     // ngăn chặn di thẻ div ra bên ngoài: đầu vào (position: lấy vị trí đích đến, cssText: lấy size, limit: giới hạn của khung cha)
     static preventMoveOut(position,cssText, limitTop, limitLeft){
+        // console.log(limitTop,limitLeft);
         let myPosition = JSON.parse(position)
         let size = JSON.parse(this.getSizeFromCssText(cssText))
         if(Number(myPosition.top) <= 0 || Number(myPosition.left <= 0)){
+            // console.log("nho hon 0");
             return false;
         }else if ((Number(myPosition.top) + Number(size.height) >= limitTop)){
+            // console.log("vuot rao phai");
             return false;
         }else if ((Number(myPosition.left) + Number(size.width) >= limitLeft)){
+            // console.log("vuot rao trai");
             return false;
         }else{
             return true;
         }
     }
 
+    // ====================== PAGE ====================================
+    // tạo ra 1 thẻ text box mới cho page
+    static createTextBox(data,work){
+        let newTextBox = document.createElement("text-box");
+        newTextBox.data = data;
+        newTextBox.work = work;
+        return newTextBox;
+    }
+
+    // event để kéo text box di chuyển
+    static addEventPage(obj){
+        // console.log(obj);
+        obj.addEventListener("mousemove", (event) => {
+            // console.log("move");
+            if (currentTextBox != null && isCanMove()) {
+                let checkLimit = Processing.preventMoveOut(mouseMove(event.screenY, event.screenX), currentTextBox.cssText, obj.clientHeight, obj.clientWidth);
+                // console.log(checkLimit);
+                if ( checkLimit) {
+                    changeDataForm(currentTextBox)
+                    currentTextBox.position = mouseMove(event.screenY, event.screenX);
+                }
+            }
+        })
+        
+        obj.addEventListener("mouseleave", () => {
+            // console.log("thoat");
+            mouseRelease();
+        })
+    }
 }

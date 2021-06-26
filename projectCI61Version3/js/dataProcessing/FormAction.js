@@ -39,11 +39,14 @@ function whenClickDesignArea() {
     if(currentTextBox == null){
         myForm.data = JSON.stringify("");
     }
+    // console.log(currentTextBox.cssText);
 }
 
 function saveTextBoxData() {
     currentTextBox.data = myForm.dataHTML;
-    console.log(myForm.dataHTML);
+    // console.log(myForm.dataHTML);
+    let page = document.querySelector(".js-story-page");
+    localStorage.setItem("my-page",page.dataHTML)
 }
 
 function deletaCurrentTextBox() {
@@ -57,6 +60,7 @@ function deletaCurrentTextBox() {
 }
 
 function createTextBox() {
-    let page = document.getElementById("design-area");
-    page.appendChild(document.createElement("text-box"))
+    let page = document.querySelector(".js-story-page");
+    page.createNewTextBox();
+    // console.log(page.dataHTML);
 }

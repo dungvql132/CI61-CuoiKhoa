@@ -25,6 +25,7 @@ function resetAll() {
 
 function mouseDown(move,mouseTop,mouseLeft) {
     let myMove = JSON.parse(move);
+    console.log(move);
     textBox_Picked.top = Number(myMove.top);
     mouse_Picked.top = mouseTop;
 

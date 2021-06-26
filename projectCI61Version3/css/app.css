@@ -2,6 +2,7 @@
 @import url(component/InputWrapper.css);
 @import url(component/DesignForm.css);
 @import url(component/TextBox.css);
+@import url(component/Page.css);
 
 *{
     background-size: cover;

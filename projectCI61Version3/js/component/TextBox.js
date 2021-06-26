@@ -15,7 +15,11 @@ export default class TextBox extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data", "position"]
+        return ["data", "position", "work"]
+    }
+
+    get cssText() {
+        return this.querySelector(".js-div").style.cssText;
     }
 
     get data() {
@@ -34,11 +38,11 @@ export default class TextBox extends HTMLElement {
         this.setAttribute("position", string)
     }
 
-    set addClass(string){
+    set addClass(string) {
         this.$div.classList.add(string);
     }
 
-    set removeClass(string){
+    set removeClass(string) {
         this.$div.classList.remove(string)
     }
 
@@ -47,10 +51,14 @@ export default class TextBox extends HTMLElement {
         this.$div = this.querySelector(".js-div");
         let myData;
         if (this.data != null) {
+            // console.log("tu dong vao");
             myData = JSON.parse(this.data);
             this.$div.innerHTML = myData.innerHTML;
             this.$div.style.cssText = myData.cssText;
-        }else{
+            if (this.position != Processing.getPositionFromCssText(myData.cssText)) {
+                this.position = Processing.getPositionFromCssText(myData.cssText);
+            }
+        } else {
             this.data = FormData.defaultTextBox;
         }
 
@@ -58,27 +66,7 @@ export default class TextBox extends HTMLElement {
         //     whenClickTextBox(this)
         // })
 
-        this.addEventListener("mousedown", (event)=>{
-            whenClickTextBox(this)
-            mouseDown(this.position,event.screenY,event.screenX);
-            Processing.preventMoveOut(this.position,this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth)
-
-        })
-        this.parentNode.addEventListener("mousemove", (event) => {
-            let checkLimit = Processing.preventMoveOut(mouseMove(event.screenY,event.screenX),this.$div.style.cssText,this.parentNode.clientHeight,this.parentNode.clientWidth);
-            if(isCanMove() && checkLimit){
-                changeDataForm(this)
-                this.position = mouseMove(event.screenY,event.screenX);
-            }
-        })
-
-        this.parentNode.addEventListener("mouseleave", ()=>{
-            mouseRelease();
-        })
-
-        this.addEventListener("mouseup", () => {
-            mouseRelease();
-        })
+        Processing.addEventTextBox(this);
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
@@ -87,10 +75,10 @@ export default class TextBox extends HTMLElement {
             this.$div.innerHTML = myData.innerHTML;
             this.$div.style.cssText = myData.cssText;
 
-            if(this.position != Processing.getPositionFromCssText(myData.cssText)){
-                this.position = Processing.getPositionFromCssText(myData.cssText);    
+            if (this.position != Processing.getPositionFromCssText(myData.cssText)) {
+                this.position = Processing.getPositionFromCssText(myData.cssText);
             }
-        }else if ( attrName == "position"){
+        } else if (attrName == "position") {
             let myData = JSON.parse(this.data);
             this.$div.style.cssText += Processing.getPositionCss(newValue);
             myData.cssText = this.$div.style.cssText;
