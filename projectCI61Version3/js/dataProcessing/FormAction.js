@@ -59,8 +59,42 @@ function deletaCurrentTextBox() {
     }
 }
 
+// xu ly page
+let currentPage;
+
 function createTextBox() {
-    let page = document.querySelector(".js-story-page");
-    page.createNewTextBox();
-    // console.log(page.dataHTML);
+    if(currentPage != null){
+        currentPage.createNewTextBox();
+    }
+}
+
+function selectThisPage(page) {
+    currentPage = page;
+}
+
+function nextPage() {
+    let myStory = document.querySelector(".js-story").parentNode;
+
+    if(Number(myStory.selected) != (Number(myStory.size)-1)){
+        myStory.selected = Number(myStory.selected)+1;
+    }
+
+    currentTextBox = null;
+    myForm.data = JSON.stringify("");
+}
+
+function frontPage() {
+    let myStory = document.querySelector(".js-story").parentNode;
+
+    if(Number(myStory.selected) != 0){
+        myStory.selected = Number(myStory.selected)-1;
+    }
+
+    currentTextBox = null;
+    myForm.data = JSON.stringify("");
+}
+
+function createPage(){
+    let myStory = document.querySelector(".js-story").parentNode;
+    myStory.createNewPage();
 }

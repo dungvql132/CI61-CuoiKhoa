@@ -3,10 +3,13 @@
 @import url(component/DesignForm.css);
 @import url(component/TextBox.css);
 @import url(component/Page.css);
+@import url(component/Story.css);
 
 *{
     background-size: cover;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    
 }
+

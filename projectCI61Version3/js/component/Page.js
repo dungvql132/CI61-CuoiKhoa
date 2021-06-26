@@ -13,7 +13,7 @@ export default class Page extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data"]
+        return ["data", "appear"]
     }
 
     get data() {
@@ -22,6 +22,14 @@ export default class Page extends HTMLElement {
 
     set data(string) {
         this.setAttribute("data", string)
+    }
+
+    get appear() {
+        return this.getAttribute("appear")
+    }
+
+    set appear(string) {
+        this.setAttribute("appear", string)
     }
 
     get dataHTML() {
@@ -48,6 +56,11 @@ export default class Page extends HTMLElement {
     connectedCallback() {
         this.appendChild($template.content.cloneNode(true));
         this.$page = this.querySelector(".js-page");
+        if(this.appear == "ok"){
+            this.$page.classList.remove("disappear")
+        }else{
+            this.$page.classList.add("disappear")
+        }
         // this.renderData();
 
         Processing.addEventPage(this.$page);
@@ -56,6 +69,13 @@ export default class Page extends HTMLElement {
     attributeChangedCallback(attrName, oldValue, newValue) {
         if( attrName == "data"){
             this.renderData();
+        }else if ( attrName == "appear"){
+            if(newValue == "ok"){
+                this.$page.classList.remove("disappear")
+                selectThisPage(this)
+            }else{
+                this.$page.classList.add("disappear")
+            }
         }
     }
 }

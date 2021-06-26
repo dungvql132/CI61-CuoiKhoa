@@ -39,6 +39,7 @@ export default class Processing {
 
     // chuyển giá trị url về string: ví dụ url("http:google") -> http:google
     static fromURLtoString(url) {
+        console.log(url.substring(5, url.length - 2));
         return url.substring(5, url.length - 2);
     }
 
@@ -66,7 +67,7 @@ export default class Processing {
             variable = value.split(":");
             cssObject[variable[0].trim()] = variable[1].trim();
             for (let i = 2; i < variable.length; i++) {
-                cssObject[variable[0].trim()] += variable[i].trim();
+                cssObject[variable[0].trim()] += ":"+ variable[i].trim();
             }
 
         })
@@ -253,6 +254,7 @@ export default class Processing {
     // ====================== PAGE ====================================
     // tạo ra 1 thẻ text box mới cho page
     static createTextBox(data,work){
+
         let newTextBox = document.createElement("text-box");
         newTextBox.data = data;
         newTextBox.work = work;
