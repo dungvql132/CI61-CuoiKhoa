@@ -57,6 +57,7 @@ export default class InputWrapper extends HTMLElement {
         this.appendChild($template.content.cloneNode(true));
         this.$input = this.querySelector(".js-input");
         this.$label = this.querySelector(".js-label");
+        this.$input.addEventListener("change", saveTextBoxData)
 
         this.$label.innerHTML = this.getAttribute("text");
         this.$input.type = this.getAttribute("type");

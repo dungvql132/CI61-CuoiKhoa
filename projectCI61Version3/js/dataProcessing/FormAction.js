@@ -45,8 +45,10 @@ function whenClickDesignArea() {
 function saveTextBoxData() {
     currentTextBox.data = myForm.dataHTML;
     // console.log(myForm.dataHTML);
-    let page = document.querySelector(".js-story-page");
-    localStorage.setItem("my-page",page.dataHTML)
+    let page = document.querySelector(".js-story-hi");
+    localStorage.setItem("myStory",page.dataHTML)
+    console.log(page);
+    console.log("datahtml Story: "+ page.dataHTML);
 }
 
 function deletaCurrentTextBox() {
@@ -97,4 +99,10 @@ function frontPage() {
 function createPage(){
     let myStory = document.querySelector(".js-story").parentNode;
     myStory.createNewPage();
+}
+
+// ==========================================================
+function setChonTong(a,b){
+    document.getElementById("chon").innerHTML = Number(a)+1;
+    document.getElementById("tong").innerHTML = b;
 }

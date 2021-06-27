@@ -39,7 +39,7 @@ export default class Processing {
 
     // chuyển giá trị url về string: ví dụ url("http:google") -> http:google
     static fromURLtoString(url) {
-        console.log(url.substring(5, url.length - 2));
+        // console.log(url.substring(5, url.length - 2));
         return url.substring(5, url.length - 2);
     }
 
@@ -69,7 +69,6 @@ export default class Processing {
             for (let i = 2; i < variable.length; i++) {
                 cssObject[variable[0].trim()] += ":"+ variable[i].trim();
             }
-
         })
         return cssObject;
     }
@@ -253,12 +252,12 @@ export default class Processing {
 
     // ====================== PAGE ====================================
     // tạo ra 1 thẻ text box mới cho page
-    static createTextBox(data,work){
-
+    static createTextBox(obj,data,work){
+        // console.log(obj);
         let newTextBox = document.createElement("text-box");
+        obj.appendChild(newTextBox);
         newTextBox.data = data;
         newTextBox.work = work;
-        return newTextBox;
     }
 
     // event để kéo text box di chuyển
@@ -280,5 +279,14 @@ export default class Processing {
             // console.log("thoat");
             mouseRelease();
         })
+    }
+
+    // ======================= STORY =================================
+    // tao ra 1 the page moi cho cho story
+    static createPage(obj,data,work){
+        let newPage = document.createElement("story-page");
+        obj.appendChild(newPage);
+        newPage.data = data;
+        newPage.work = work;
     }
 }

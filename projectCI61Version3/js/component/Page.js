@@ -13,7 +13,7 @@ export default class Page extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data", "appear"]
+        return ["data", "appear", "work"]
     }
 
     get data() {
@@ -32,9 +32,17 @@ export default class Page extends HTMLElement {
         this.setAttribute("appear", string)
     }
 
+    get work() {
+        return this.getAttribute("work")
+    }
+
+    set work(string) {
+        this.setAttribute("work", string)
+    }
+
     get dataHTML() {
         let result = []
-        let textBoxs = document.querySelectorAll(".js-div")
+        let textBoxs = this.querySelectorAll(".js-div")
         textBoxs.forEach((element) => {
             result.push(element.parentNode.data);
         })
@@ -43,9 +51,12 @@ export default class Page extends HTMLElement {
     }
 
     renderData() {
+        console.log("render Page ======================");
         this.myData = JSON.parse(this.data);
+        // console.log(this.myData);
         this.myData.forEach(element => {
-            this.$page.appendChild(Processing.createTextBox(element));
+            Processing.createTextBox(this.$page,element)
+            // console.log(this.$page);
         });
     }
 
@@ -76,6 +87,7 @@ export default class Page extends HTMLElement {
             }else{
                 this.$page.classList.add("disappear")
             }
+            console.log("data trang nay: " + this.dataHTML);
         }
     }
 }

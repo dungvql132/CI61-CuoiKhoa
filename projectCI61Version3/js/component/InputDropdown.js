@@ -60,6 +60,7 @@ export default class InputDropdown extends HTMLElement {
     connectedCallback() {
         this.appendChild($template.content.cloneNode(true));
         this.$select = this.querySelector(".js-select");
+        this.$select.addEventListener("change", saveTextBoxData)
         
         let myOption = Processing.processInputDropdownIn(this.data);
         myOption.forEach((element) => {
