@@ -77,15 +77,15 @@ export default class Story extends HTMLElement {
         this.appendChild($template.content.cloneNode(true));
         this.$story = this.querySelector(".js-story")
         if(this.data == null){
-            console.log("null");
+            // console.log("null");
             // this.createNewPage();
             // this.createNewPage();
             // this.createNewPage();
         }else{
-            console.log("ko null");
+            // console.log("ko null");
             this.renderData();
         }
-        this.selected = 0;
+        // this.selected = 0;
         setChonTong(this.selected,this.size)
         // console.log(this.size);
         // Processing.addEventPage(this.$page);
@@ -93,11 +93,16 @@ export default class Story extends HTMLElement {
 
     attributeChangedCallback(attrName, oldValue, newValue) {
         if( attrName == "data"){
-            console.log("chay data");
-            this.renderData();
+            if(this.data == "1"){
+                this.createNewPage();
+                // this.createNewPage();
+            }else{
+                this.renderData();
+            }      
             this.selected = 0;
             setChonTong(this.selected,this.size)
         } else if( attrName == "selected"){
+            console.log("doi gia tri");
             if(oldValue != null){
                 this.$pages[Number(oldValue)].appear = "ko"
             }

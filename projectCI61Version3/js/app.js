@@ -16,4 +16,6 @@ area.appendChild(a);
 
 if(localStorage.getItem("myStory") != null){
     a.data = localStorage.getItem("myStory");
+}else{
+    a.data = "1"
 }
