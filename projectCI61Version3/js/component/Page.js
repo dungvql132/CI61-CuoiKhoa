@@ -13,7 +13,7 @@ export default class Page extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data", "appear", "work"]
+        return ["data", "appear"]
     }
 
     get data() {
@@ -32,32 +32,37 @@ export default class Page extends HTMLElement {
         this.setAttribute("appear", string)
     }
 
-    get work() {
-        return this.getAttribute("work")
-    }
-
-    set work(string) {
-        this.setAttribute("work", string)
-    }
-
     get dataHTML() {
-        let result = []
+        let result = {
+            textboxs : [],
+            cssText : ''
+        }
         let textBoxs = this.querySelectorAll(".js-div")
         textBoxs.forEach((element) => {
-            result.push(element.parentNode.data);
+            result.textboxs.push(element.parentNode.data);
         })
+        result.cssText = this.$page.style.cssText;
         // console.log(result);
         return JSON.stringify(result);
     }
 
+    get cssText(){
+        return this.$page.style.cssText;
+    }
+
+    set cssText(string){
+        this.$page.style.cssText = string;
+    }
+
     renderData() {
-        console.log("render Page ======================");
-        this.myData = JSON.parse(this.data);
+        // console.log("render Page ======================");
+        let myData = JSON.parse(this.data);
         // console.log(this.myData);
-        this.myData.forEach(element => {
+        myData.textboxs.forEach(element => {
             Processing.createTextBox(this.$page,element)
             // console.log(this.$page);
         });
+        this.$page.style.cssText = myData.cssText;
     }
 
     createNewTextBox() {
@@ -73,6 +78,7 @@ export default class Page extends HTMLElement {
             this.$page.classList.add("disappear")
         }
         // this.renderData();
+        // console.log(this.$page);
 
         Processing.addEventPage(this.$page);
     }
@@ -87,7 +93,7 @@ export default class Page extends HTMLElement {
             }else{
                 this.$page.classList.add("disappear")
             }
-            console.log("data trang nay: " + this.dataHTML);
+            // console.log("data trang nay: " + this.dataHTML);
         }
     }
 }

@@ -1,11 +1,10 @@
-
 // hiển thị ra phần điều chỉnh data
-function apearProcess(obj){
+function apearProcess(obj) {
     let arrBtn = document.querySelectorAll(".appear-process");
     let arrProcessData = document.querySelectorAll(".data-process");
 
-    for(let i = 0; i<arrBtn.length; i++){
-        if(arrBtn[i] == obj){
+    for (let i = 0; i < arrBtn.length; i++) {
+        if (arrBtn[i] == obj) {
             arrProcessData[i].classList.toggle("disappear");
             return;
         }
@@ -16,7 +15,7 @@ function apearProcess(obj){
 
 let currentTextBox;
 let pickedTextBox;
-let myForm = document.querySelector(".my-form");
+let myForm = document.querySelector("design-form");
 
 function whenClickTextBox(obj) {
     // console.log("con");
@@ -31,33 +30,32 @@ function changeDataForm(obj) {
 
 function whenClickDesignArea() {
     // console.log("cha");
-    if(currentTextBox != null && currentTextBox != pickedTextBox){
+    if (currentTextBox != null && currentTextBox != pickedTextBox) {
         currentTextBox.removeClass = 'text-box-picked';
     }
     currentTextBox = pickedTextBox;
     pickedTextBox = null;
-    if(currentTextBox == null){
+    if (currentTextBox == null) {
         myForm.data = JSON.stringify("");
     }
     // console.log(currentTextBox.cssText);
 }
 
 function saveTextBoxData() {
-    currentTextBox.data = myForm.dataHTML;
+    if (currentTextBox != null) {
+        currentTextBox.data = myForm.dataHTML;
+    }
     // console.log(myForm.dataHTML);
-    let page = document.querySelector(".js-story-hi");
-    localStorage.setItem("myStory",page.dataHTML)
-    console.log(page);
-    console.log("datahtml Story: "+ page.dataHTML);
+    updatePage();
 }
 
 function deletaCurrentTextBox() {
-    if(currentTextBox != null){
+    if (currentTextBox != null) {
         try {
             currentTextBox.parentNode.removeChild(currentTextBox);
             currentTextBox = null;
             myForm.data = JSON.stringify("");
-        } catch (error) {}
+        } catch (error) { }
     }
 }
 
@@ -65,9 +63,25 @@ function deletaCurrentTextBox() {
 let currentPage;
 
 function createTextBox() {
-    if(currentPage != null){
+    if (currentPage != null) {
         currentPage.createNewTextBox();
     }
+}
+
+function updatePageForm() {
+    let pageForm = document.querySelector("design-page-form");
+    let data = {
+        cssText: '',
+        innerHTML: '',
+        animation: ''
+    }
+    data.cssText = currentPage.cssText;
+    pageForm.data = JSON.stringify(data)
+}
+
+function updatePage() {
+    let pageForm = document.querySelector("design-page-form");
+    currentPage.cssText = pageForm.dataHTML.cssText;
 }
 
 function selectThisPage(page) {
@@ -77,32 +91,46 @@ function selectThisPage(page) {
 function nextPage() {
     let myStory = document.querySelector(".js-story").parentNode;
 
-    if(Number(myStory.selected) != (Number(myStory.size)-1)){
-        myStory.selected = Number(myStory.selected)+1;
+    if (Number(myStory.selected) != (Number(myStory.size) - 1)) {
+        myStory.selected = Number(myStory.selected) + 1;
     }
 
     currentTextBox = null;
     myForm.data = JSON.stringify("");
+    updatePageForm();
 }
 
 function frontPage() {
     let myStory = document.querySelector(".js-story").parentNode;
 
-    if(Number(myStory.selected) != 0){
-        myStory.selected = Number(myStory.selected)-1;
+    if (Number(myStory.selected) != 0) {
+        myStory.selected = Number(myStory.selected) - 1;
     }
 
     currentTextBox = null;
     myForm.data = JSON.stringify("");
+    updatePageForm();
 }
 
-function createPage(){
+function createPage() {
     let myStory = document.querySelector(".js-story").parentNode;
     myStory.createNewPage();
 }
 
-// ==========================================================
-function setChonTong(a,b){
-    document.getElementById("chon").innerHTML = Number(a)+1;
+// ======================= STORY ===================================
+function setChonTong(a, b) {
+    document.getElementById("chon").innerHTML = Number(a) + 1;
     document.getElementById("tong").innerHTML = b;
+}
+
+// dieu chinh icon 
+function changeIcon(obj){
+    let $design = document.querySelectorAll(".form-data")
+    let $designIcon = document.querySelectorAll(".designIcon")
+    for (let index = 0; index < $designIcon.length; index++) {
+        $design[index].classList.add("disappear")
+        if(obj == $designIcon[index]){
+            $design[index].classList.remove("disappear")
+        }
+    }
 }

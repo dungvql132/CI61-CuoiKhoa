@@ -289,4 +289,39 @@ export default class Processing {
         newPage.data = data;
         newPage.work = work;
     }
+
+    static async saveStoryToFireBase(dataStory){
+        await firebase.firestore().collection("storys").doc(dataStory.id).update(dataStory);
+    }
+}
+
+async function getDocs(name){
+    let reponse = await firebase.firestore().collection(name).get();
+    return reponse.docs;
+}
+
+export function getDataFromDoc(doc){
+    let myObj = doc.data();
+    myObj.id = doc.id;
+    return myObj;
+}
+
+export async function getUserAction(){
+    let docs = await getDocs("usersAction")
+    let uid = firebase.auth().currentUser.uid;
+    // console.log(firebase.auth().currentUser.uid);
+    // console.log(docs);
+    let result;
+    try {
+        docs.forEach(doc => {
+            if(doc.data().idUser == uid){
+                result = getDataFromDoc(doc);
+                back
+            }
+        })
+    } catch (error) {
+        
+    }
+    // console.log(result);
+    return result;
 }

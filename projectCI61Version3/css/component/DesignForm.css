@@ -1,8 +1,29 @@
 .form-data{
     width: 100%;
-    height: 70%;
+    height: 100%;
     background-color: chocolate;
+    /* overflow: auto; */
+}
+
+.design-form-top{
+    width: 100%;
+    height: 70%;
+    display: flex;
+}
+
+.type-design{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
     overflow: auto;
+}
+
+.icon-list{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 100%;
 }
 
 .form-action{

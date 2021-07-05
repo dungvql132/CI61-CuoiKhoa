@@ -15,7 +15,7 @@ export default class TextBox extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["data", "position", "work"]
+        return ["data", "position"]
     }
 
     get cssText() {
@@ -51,7 +51,6 @@ export default class TextBox extends HTMLElement {
         this.$div = this.querySelector(".js-div");
         let myData;
         if (this.data != null) {
-            // console.log("tu dong vao");
             myData = JSON.parse(this.data);
             this.$div.innerHTML = myData.innerHTML;
             this.$div.style.cssText = myData.cssText;

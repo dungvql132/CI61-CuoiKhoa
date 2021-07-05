@@ -3,7 +3,7 @@ export default class FormData{
     static _fonts = ["Times New Roman","Courier New","Arial","Cambria","Verdana"];
     static fonts = JSON.stringify(this._fonts);
 
-    static _animation = ["dropdown","jump"];
+    static _animation = ["dropdown","jump","moveup"];
     static animation = JSON.stringify(this._animation);
 
     static _borderStyle = ["dashed","dotted","solid","double","groove","hidden"];

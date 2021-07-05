@@ -14,6 +14,7 @@
     width: 75%;
     border: 3px solid black;
     position: relative;
+    /* transform: scale(0.5,0.5); */
 }
 
 #design-form{
