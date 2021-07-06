@@ -4,7 +4,7 @@ import Processing from "../dataProcessing/Processing.js";
 const $template = document.createElement("template");
 
 $template.innerHTML = `
-<div class="form-data">
+<div class="form-data disappear">
     <!-- inner HTML -->
     <div class="appear-process" onclick="apearProcess(this)">
         <div class="process-icon">></div>

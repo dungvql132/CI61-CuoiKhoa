@@ -163,7 +163,6 @@ export default class Processing {
             whenClickTextBox(obj)
             mouseDown(obj.position, event.screenY, event.screenX);
             Processing.preventMoveOut(obj.position, obj.$div.style.cssText, obj.parentNode.clientHeight, obj.parentNode.clientWidth)
-
         })
 
         obj.addEventListener("mouseup", () => {
@@ -291,7 +290,13 @@ export default class Processing {
     }
 
     static async saveStoryToFireBase(dataStory){
+        // console.log(dataStory);
         await firebase.firestore().collection("storys").doc(dataStory.id).update(dataStory);
+    }
+
+    static getToDay(){
+        let myDay = new Date();
+        return myDay.getDate() + "/" + (myDay.getMonth() + 1) + "/" + (myDay.getFullYear());
     }
 }
 

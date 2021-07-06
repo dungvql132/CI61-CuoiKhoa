@@ -4,9 +4,10 @@
 @import url(component/TextBox.css);
 @import url(component/Page.css);
 @import url(component/Story.css);
-
+@import url(designArea.css);
 *{
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -14,10 +15,13 @@
 }
 
 .ngang{
-    margin: auto;
+    width: 100%;
     display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 p{
+    display: inline;
     font-size: 20px;
 }

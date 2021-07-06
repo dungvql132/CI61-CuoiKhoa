@@ -3,7 +3,7 @@ import Processing from "../dataProcessing/Processing.js";
 const $template = document.createElement("template");
 
 $template.innerHTML = `
-<div class="form-data">
+<div class="form-data disappear">
     <div class="appear-process" onclick="apearProcess(this)">
         <div class="process-icon">></div>
         <div class="process-text">description</div>
@@ -52,6 +52,10 @@ export default class DesignStoryForm extends HTMLElement {
         myData.description = this.$description.value;
         myData.title = this.$title.value;
         myData.data = document.querySelector("story-maked").dataHTML;
+
+        if(myData.dateModified == "undefined" || myData.dateModified == null){
+            myData.dateModified = Processing.getToDay();
+        }
         return myData;
     }
 

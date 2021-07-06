@@ -31,8 +31,12 @@
 <body>
     <div id="design" class="flex">
         <div id="design-area">
-            <div class="ngang"><p id="chon"></p><p>/</p><p id="tong"></p></div>
-            <story-maked></story-maked>
+            <button class="btn-changepage btn-front-page" onclick="frontPage()">lui 1 trang</button>
+            <div class="design-field">
+                <div class="ngang"><p id="chon"></p><p>/</p><p id="tong"></p></div>
+                <div id="cover-story"> <story-maked></story-maked> </div>
+            </div>
+            <button class="btn-changepage btn-next-page" onclick="nextPage()">sang trang ke</button>
         </div>
 
         <div id="design-form">   
@@ -49,12 +53,13 @@
                 </div>
             </div>
             <div class="form-action">
-                <button onclick="saveTextBoxData()">luu text box</button>
+                <button onclick="saveTextBoxData()">luu page</button>
                 <button onclick="deletaCurrentTextBox()">xoa the text box dang chon</button>
                 <button onclick="createTextBox()">them text box</button>
+                <button onclick="deleteCurrentPage()">xoa trang hien tai</button>
                 <button onclick="createPage()">tao them trang</button>
-                <button onclick="nextPage()">sang trang ke</button>
-                <button onclick="frontPage()">lui 1 trang</button>
+                
+                
                 <button id="btn-saveStory">luu story</button>
             </div>
         </div>

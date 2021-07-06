@@ -37,8 +37,8 @@ function mouseMove(mouseTop,mouseLeft) {
     mouse_Moved.top = mouseTop;
     mouse_Moved.left = mouseLeft;
 
-    textBox_Moved.top = textBox_Picked.top + (mouse_Moved.top - mouse_Picked.top);
-    textBox_Moved.left = textBox_Picked.left + (mouse_Moved.left - mouse_Picked.left);
+    textBox_Moved.top = textBox_Picked.top + (mouse_Moved.top - mouse_Picked.top)/scale;
+    textBox_Moved.left = textBox_Picked.left + (mouse_Moved.left - mouse_Picked.left)/scale;
 
     return JSON.stringify(textBox_Moved);
 }

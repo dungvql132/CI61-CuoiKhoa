@@ -15,7 +15,7 @@ function apearProcess(obj) {
 
 let currentTextBox;
 let pickedTextBox;
-let myForm = document.querySelector("design-form");
+// let myForm = document.querySelector("design-form");
 
 function whenClickTextBox(obj) {
     // console.log("con");
@@ -25,7 +25,7 @@ function whenClickTextBox(obj) {
 }
 
 function changeDataForm(obj) {
-    myForm.data = obj.data;
+    document.querySelector("design-form").data = obj.data;
 }
 
 function whenClickDesignArea() {
@@ -36,16 +36,16 @@ function whenClickDesignArea() {
     currentTextBox = pickedTextBox;
     pickedTextBox = null;
     if (currentTextBox == null) {
-        myForm.data = JSON.stringify("");
+        document.querySelector("design-form").data = JSON.stringify("");
     }
     // console.log(currentTextBox.cssText);
 }
 
 function saveTextBoxData() {
     if (currentTextBox != null) {
-        currentTextBox.data = myForm.dataHTML;
+        currentTextBox.data = document.querySelector("design-form").dataHTML;
     }
-    // console.log(myForm.dataHTML);
+    // console.log(document.querySelector("design-form").dataHTML);
     updatePage();
 }
 
@@ -54,18 +54,22 @@ function deletaCurrentTextBox() {
         try {
             currentTextBox.parentNode.removeChild(currentTextBox);
             currentTextBox = null;
-            myForm.data = JSON.stringify("");
+            document.querySelector("design-form").data = JSON.stringify("");
         } catch (error) { }
     }
 }
 
-// xu ly page
+// ===============xu ly page =================
 let currentPage;
 
 function createTextBox() {
     if (currentPage != null) {
         currentPage.createNewTextBox();
     }
+}
+
+function deleteCurrentPage() {
+    document.querySelector("story-maked").detelePage();
 }
 
 function updatePageForm() {
@@ -96,7 +100,7 @@ function nextPage() {
     }
 
     currentTextBox = null;
-    myForm.data = JSON.stringify("");
+    document.querySelector("design-form").data = JSON.stringify("");
     updatePageForm();
 }
 
@@ -108,7 +112,7 @@ function frontPage() {
     }
 
     currentTextBox = null;
-    myForm.data = JSON.stringify("");
+    document.querySelector("design-form").data = JSON.stringify("");
     updatePageForm();
 }
 
@@ -134,3 +138,6 @@ function changeIcon(obj){
         }
     }
 }
+
+// khi render sang trang nho hon
+let scale = 1;
