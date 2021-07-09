@@ -6,12 +6,17 @@
 @import url(component/Story.css);
 @import url(designArea.css);
 *{
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    
+    /* background: transparent; */
+}
+
+button{
+    background-size: contain;
 }
 
 .ngang{

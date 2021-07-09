@@ -2,11 +2,12 @@
 function apearProcess(obj) {
     let arrBtn = document.querySelectorAll(".appear-process");
     let arrProcessData = document.querySelectorAll(".data-process");
+    let arrProcessIcon = document.querySelectorAll(".process-icon");
 
     for (let i = 0; i < arrBtn.length; i++) {
         if (arrBtn[i] == obj) {
             arrProcessData[i].classList.toggle("disappear");
-            return;
+            arrProcessIcon[i].classList.toggle("rotate90")
         }
     }
 }
@@ -22,6 +23,7 @@ function whenClickTextBox(obj) {
     pickedTextBox = obj;
     changeDataForm(obj)
     obj.addClass = 'text-box-picked';
+    console.log(obj);
 }
 
 function changeDataForm(obj) {

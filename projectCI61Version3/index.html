@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/app.css">
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
@@ -29,41 +33,8 @@
     </script>
 </head>
 <body>
-    <div id="design" class="flex">
-        <div id="design-area">
-            <button class="btn-changepage btn-front-page" onclick="frontPage()">lui 1 trang</button>
-            <div class="design-field">
-                <div class="ngang"><p id="chon"></p><p>/</p><p id="tong"></p></div>
-                <div id="cover-story"> <story-maked></story-maked> </div>
-            </div>
-            <button class="btn-changepage btn-next-page" onclick="nextPage()">sang trang ke</button>
-        </div>
 
-        <div id="design-form">   
-            <div class="design-form-top">
-                <div class="icon-list">
-                    <button class="designIcon" onclick="changeIcon(this)">box</button>
-                    <button class="designIcon" onclick="changeIcon(this)">page</button>
-                    <button class="designIcon" onclick="changeIcon(this)">story</button>
-                </div>
-                <div class="type-design">
-                    <design-form></design-form>
-                    <design-page-form></design-page-form>
-                    <design-story-form></design-story-form>
-                </div>
-            </div>
-            <div class="form-action">
-                <button onclick="saveTextBoxData()">luu page</button>
-                <button onclick="deletaCurrentTextBox()">xoa the text box dang chon</button>
-                <button onclick="createTextBox()">them text box</button>
-                <button onclick="deleteCurrentPage()">xoa trang hien tai</button>
-                <button onclick="createPage()">tao them trang</button>
-                
-                
-                <button id="btn-saveStory">luu story</button>
-            </div>
-        </div>
-    </div>
+    <design-screen></design-screen>
 
     <script src="js/app.js" type="module"></script>
     <script src="js/dataProcessing/FormAction.js"></script>
@@ -73,5 +44,6 @@
     <script src="js/component/TextBox.js" type="module"></script>
     <script src="js/component/Page.js"  type="module"></script>
     <script src="./js/dataProcessing/firebase.js" type="module"></script>
+    <!-- <script src="screen/DesignScreen.js"></script> -->
 </body>
 </html>

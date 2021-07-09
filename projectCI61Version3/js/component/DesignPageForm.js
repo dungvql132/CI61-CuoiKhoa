@@ -7,7 +7,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">nền trang</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-1 disappear">
         <input-wrapper class="js-ip-style" type="text" text="ảnh nền" givedata="url" keepdata="string" kindcss="background-image"></input-wrapper>
     </div>
 </div>

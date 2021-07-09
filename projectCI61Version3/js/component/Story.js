@@ -136,6 +136,7 @@ export default class Story extends HTMLElement {
         // console.log("bien doi value");
         if( attrName == "data"){
             // console.log("chinh sua data");
+            // console.log(this.data);
             if(this.data == null || this.data == ''){
                 this.$story.innerHTML = '';
                 this.createNewPage();

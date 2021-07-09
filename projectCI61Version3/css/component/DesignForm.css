@@ -1,42 +1,60 @@
 .form-data{
     width: 100%;
-    height: 100%;
-    background-color: chocolate;
+    height: auto;
+    background-color: wheat;
     /* overflow: auto; */
 }
 
 .design-form-top{
+    background-color: wheat;
     width: 100%;
-    height: 70%;
+    height: 65%;
     display: flex;
 }
 
+/* ======== icon list =========== */
+.icon-list{
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 100%;
+    /* background: transparent !important; */
+}
+
+.icon-list > button {
+    font-size: 25px;
+    margin-bottom: 3px;
+    width: 96%;
+    height: 10%;
+}
+
+/* ========== khung style ======== */
 .type-design{
     display: flex;
     flex-direction: column;
     width: 90%;
     height: 100%;
-    overflow: auto;
+    /* overflow: auto; */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+/* ========== 1 phan style ======= */
 
-.icon-list{
-    display: flex;
-    flex-direction: column;
-    width: 10%;
-    height: 100%;
-}
-
-.form-action{
-    width: 100%;
-    height: 30%;
-    background-color: darkgrey;
-}
-
+/* == nut bam noi dung == */
 .appear-process{
+    margin-left: 2%;
+    font-size: 20px;
     display: flex;
     height: 40px;
-    width: 100%;
-    background-color: fuchsia;
+    width: 98%;
+    background-color: grey;
+    border: 1.5px solid black;
+    margin-bottom: 2px;
+}
+
+.appear-process:hover{
+    filter: brightness(130%);
 }
 
 .process-icon{
@@ -47,12 +65,129 @@
     align-items: center;
 }
 
+.rotate90{
+    animation-name: rotate;
+    animation-duration: 0.5s;
+    transform: rotate(90deg);
+}
+
 .process-text{
     display: flex;
     align-items: center;
     height: 100%;
 }
 
+/* == noi dung style == */
+.data-process{
+    overflow:hidden;
+}
+
+.data-process.number-1{
+    animation-name: number-1;
+    animation-duration: 0.5s;
+    height: 80px;
+}
+
+.data-process.number-2{
+    animation-name: number-2;
+    animation-duration: 0.5s;
+    height: 160px;
+}
+
+.data-process.number-3{
+    animation-name: number-3;
+    animation-duration: 0.75s;
+    height: 220px;
+}
+
+.data-process.number-4{
+    animation-name: number-4;
+    animation-duration: 1s;
+    height: 300px;
+}
+
 .disappear{
+    animation-name: disappear;
+    animation-duration: 0.5s;
     display: none !important;
+}
+
+/* ======== FORM ACTION ============ */
+.form-action{
+    border-top: 2px solid black;
+    width: 100%;
+    height: 35%;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-action > div{
+    /* margin-top: 1%; */
+    height: 23%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form-action > div > button {
+    align-items: center;
+    font-size: 15px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    height: 90%;
+    width: 45%;
+}
+
+.form-action > div > button:hover{
+    background-color: tomato;
+}
+
+.form-action > div > button > i{
+    margin-right: 10%;
+    font-size: 30px;
+}
+
+.form-action > button {
+    margin-top: 1%;
+    height: 23%;
+    width: 95%;
+}
+
+.form-action > button:hover{
+    background-color: tomato;
+}
+
+
+@keyframes rotate{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(90deg);}
+}
+
+@keyframes number-1{
+    from{height: 0px;}
+    to{height: 80px;}
+}
+
+@keyframes number-2{
+    from{height: 0px;}
+    to{height: 160px;}
+}
+
+@keyframes number-3{
+    from{height: 0px;}
+    to{height: 200px;}
+}
+
+@keyframes number-4{
+    from{height: 0px;}
+    to{height: 280px;}
+}
+
+@keyframes disappear{
+    from{height: 100%;}
+    to{height: 0px;}
 }

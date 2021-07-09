@@ -10,7 +10,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">nội dung</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-1 disappear">
         <input-wrapper class="js-ip-innerHTML" type="text" text="văn bản"></input-wrapper>
     </div>
 
@@ -19,7 +19,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">kích thước</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-2 disappear">
         <input-wrapper class="js-ip-style" type="number" text="chiều cao" givedata="px" keepdata="number" kindcss="height"></input-wrapper>
         <input-wrapper class="js-ip-style" type="number" text="chiều rộng" givedata="px" keepdata="number" kindcss="width"></input-wrapper>
     </div>
@@ -29,7 +29,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">vị trí</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-2 disappear">
         <input-wrapper class="js-ip-style" type="number" text="bên trên" givedata="px" keepdata="number" kindcss="top"></input-wrapper>
         <input-wrapper class="js-ip-style" type="number" text="bên trái" givedata="px" keepdata="number" kindcss="left"></input-wrapper>
     </div>
@@ -39,7 +39,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">chữ</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-3 disappear">
         <input-wrapper class="js-ip-style" type="number" text="cỡ chữ" givedata="px" keepdata="number" kindcss="font-size"></input-wrapper>
         <input-wrapper class="js-ip-style" type="color" text="màu chữ" givedata="rgb" keepdata="hexa" kindcss="color"></input-wrapper>
         <input-dropdown class="js-ip-style js-fontfamily" text="font chữ" kindcss="font-family"></input-dropdown>
@@ -50,9 +50,10 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">nền</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-3 disappear">
         <input-wrapper class="js-ip-style" type="color" text="màu nền" givedata="rgb" keepdata="hexa" kindcss="background-color"></input-wrapper>
         <input-wrapper class="js-ip-style" type="text" text="ảnh nền" givedata="url" keepdata="string" kindcss="background-image"></input-wrapper>
+        <input-dropdown class="js-ip-style js-background" text="loại nền" kindcss="background"></input-dropdown>
     </div>
 
     <!-- style : hieu ung -->
@@ -60,7 +61,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">hiệu ứng</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-1 disappear">
         <input-dropdown class="js-ip-class js-animationclass" text="hiệu ứng"></input-dropdown>
     </div>
                 
@@ -69,7 +70,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">viền</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-4 disappear">
         <input-dropdown class="js-ip-style js-borderstyle" text="loại viền" kindcss="border-style"></input-dropdown>
         <input-wrapper class="js-ip-style" type="color" text="màu viền" givedata="rgb" keepdata="hexa" kindcss="border-color"></input-wrapper>
         <input-wrapper class="js-ip-style" type="number" text="cỡ viền" givedata="px" keepdata="number" kindcss="border-width"></input-wrapper>
@@ -81,7 +82,7 @@ $template.innerHTML = `
         <div class="process-icon">></div>
         <div class="process-text">căn lề trong</div>
     </div>
-    <div class="data-process disappear">
+    <div class="data-process number-4 disappear">
 
         <input-wrapper class="js-ip-style" type="number" text="lề trái" givedata="px" keepdata="number" kindcss="padding-left"></input-wrapper>
         <input-wrapper class="js-ip-style" type="number" text="lề phải" givedata="px" keepdata="number" kindcss="padding-right"></input-wrapper>
@@ -132,11 +133,12 @@ export default class DesignForm extends HTMLElement{
         this.$inputAnimation = this.querySelector(".js-animationclass");
         this.$fontFamily = this.querySelector(".js-fontfamily");
         this.$borderStyle = this.querySelector(".js-borderstyle");
+        this.$background = this.querySelector(".js-background");
 
         this.$inputAnimation.data = FormData.animation;
         this.$fontFamily.data = FormData.fonts;
         this.$borderStyle.data = FormData.borderStyle;
-
+        this.$background.data = FormData.background;
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {

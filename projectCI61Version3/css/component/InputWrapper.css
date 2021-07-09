@@ -1,0 +1,45 @@
+.js-label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+.js-input{
+    width: 80%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    display: block;
+}
+
+.js-select{
+    width: 80%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    display: block;
+}
+
+.js-textarea{
+    margin-top: 10px;
+    width: 90%;
+    height: 130px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    display: block;
+}
+
+.js-title{
+    height: 60px;
+}
+
+.js-dateModified{
+   margin: 15px; 
+   font-size: 18px;
+   margin-left: 5%;
+}

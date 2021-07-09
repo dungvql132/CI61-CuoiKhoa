@@ -1,4 +1,3 @@
-
 export default class FormData{
     static _fonts = ["Times New Roman","Courier New","Arial","Cambria","Verdana"];
     static fonts = JSON.stringify(this._fonts);
@@ -6,7 +5,7 @@ export default class FormData{
     static _animation = ["dropdown","jump","moveup"];
     static animation = JSON.stringify(this._animation);
 
-    static _borderStyle = ["dashed","dotted","solid","double","groove","hidden"];
+    static _borderStyle = ["dashed","dotted","solid","double","groove","hidden","transparent"];
     static borderStyle = JSON.stringify(this._borderStyle);
 
     static _defaultTextBox = {
@@ -17,4 +16,10 @@ export default class FormData{
         animation : ""
     }
     static defaultTextBox = JSON.stringify(this._defaultTextBox);
+
+    static _kinds = ["Trinh thám", "Đời thường", "Truyện buồn"]
+    static kinds = JSON.stringify(this._kinds);
+
+    static _background = ["transparent"];
+    static background = JSON.stringify(this._background);
 }
