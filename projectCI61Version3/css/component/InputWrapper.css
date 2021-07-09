@@ -24,6 +24,9 @@
 }
 
 .js-textarea{
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
     margin-top: 10px;
     width: 90%;
     height: 130px;

@@ -23,7 +23,7 @@
 }
 
 .icon-list > button {
-    font-size: 25px;
+    font-size: 100%;
     margin-bottom: 3px;
     width: 96%;
     height: 10%;
@@ -148,7 +148,7 @@
 
 .form-action > div > button > i{
     margin-right: 10%;
-    font-size: 30px;
+    font-size: 150%;
 }
 
 .form-action > button {
