@@ -68,7 +68,7 @@ export default class ViewStory extends HTMLElement {
         coverStory.style.width = this.mySize.width + "px";
 
 
-        await firebase.auth().signInWithEmailAndPassword("dungdz@gmail.com", "123456");
+        // await firebase.auth().signInWithEmailAndPassword("dungdz@gmail.com", "123456");
         let currentUser = await firebase.auth().currentUser;
         let user = await firebase.firestore().collection("users").doc(currentUser.uid).get();
 

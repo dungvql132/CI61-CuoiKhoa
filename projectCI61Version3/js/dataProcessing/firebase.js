@@ -2,7 +2,7 @@ import Processing, { getDataFromDoc, getUserAction } from "./Processing.js";
 
 export async function reload() {
     // let currentUser = await firebase.auth().currentUser;
-    await firebase.auth().signInWithEmailAndPassword("dungdz@gmail.com", "123456")
+    // await firebase.auth().signInWithEmailAndPassword("dungdz@gmail.com", "123456")
     
     let designStoryForm = document.querySelector("design-story-form");
     let myStory = document.querySelector("story-maked");
