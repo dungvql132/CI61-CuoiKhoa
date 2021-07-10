@@ -1,9 +1,10 @@
 // import Processing from "../dataProcessing/Processing.js";
 import { reload } from "../js/dataProcessing/firebase.js";
+import Processing from "../js/dataProcessing/Processing.js";
 const $template = document.createElement("template");
 
 $template.innerHTML = `
-<div id="design" class="flex">
+<div id="design" class="flex fadeIn">
 <div id="design-area">
     <button class="btn-changepage btn-front-page" onclick="frontPage()" style="background-image: url(img/leftArrow.png);"></button>
     <div class="design-field">

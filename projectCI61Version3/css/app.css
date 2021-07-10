@@ -5,6 +5,7 @@
 @import url(component/Page.css);
 @import url(component/Story.css);
 @import url(designArea.css);
+@import url(readstory-screen.css);
 *{
     background-size: cover;
     background-position: center;

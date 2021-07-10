@@ -76,6 +76,12 @@ export default class Story extends HTMLElement {
         return JSON.stringify(result);
     }
 
+    get urlFirstPage(){
+        let url = this.$pages[0].cssText.split("(");
+        // console.log(url[1].substring(1,url[1].length-3));
+        return url[1].substring(1,url[1].length-3);
+    }
+
     renderData() {
         // console.log("go render");
         let myData = JSON.parse(this.data);

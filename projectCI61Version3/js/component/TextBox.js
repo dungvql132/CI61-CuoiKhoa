@@ -61,10 +61,6 @@ export default class TextBox extends HTMLElement {
             this.data = FormData.defaultTextBox;
         }
 
-        // this.addEventListener("click", ()=>{
-        //     whenClickTextBox(this)
-        // })
-
         Processing.addEventTextBox(this);
     }
 
@@ -77,6 +73,13 @@ export default class TextBox extends HTMLElement {
             if (this.position != Processing.getPositionFromCssText(myData.cssText)) {
                 this.position = Processing.getPositionFromCssText(myData.cssText);
             }
+            
+            if(oldValue != null){
+                let oldData = JSON.parse(oldValue);
+                this.$div.classList.remove("animate__"+oldData.animation);
+            }
+            this.$div.classList.add("animate__"+myData.animation);
+            this.$div.classList.add("animate__animated");
         } else if (attrName == "position") {
             let myData = JSON.parse(this.data);
             this.$div.style.cssText += Processing.getPositionCss(newValue);

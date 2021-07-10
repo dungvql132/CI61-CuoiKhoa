@@ -9,5 +9,7 @@ import Story from "./component/Story.js";
 import DesignPageForm from "./component/DesignPageForm.js"
 import DesignStoryForm from "./component/DesignStoryForm.js"
 import DesignScreen from "../screen/DesignScreen.js";
-
-console.log("phien ban chay tet ga");
+import ViewPage from "./component/viewPage.js";
+import ViewStory from "./component/viewStory.js";
+import ViewTextBox from "./component/viewTextBox.js";
+import ReadStoryScreen from "../screen/ReadStoryScreen.js";

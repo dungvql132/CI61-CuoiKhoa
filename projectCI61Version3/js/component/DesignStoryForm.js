@@ -60,10 +60,12 @@ export default class DesignStoryForm extends HTMLElement {
         myData.title = this.$title.value;
         myData.data = document.querySelector("story-maked").dataHTML;
         myData.kinds = this.kinds.dataHTML;
+        myData.page = document.querySelector("story-maked").urlFirstPage;
 
         if(myData.dateModified == "undefined" || myData.dateModified == null){
             myData.dateModified = Processing.getToDay();
         }
+        console.log(myData);
         return myData;
     }
 

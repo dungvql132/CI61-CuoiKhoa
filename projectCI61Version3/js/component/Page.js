@@ -89,9 +89,11 @@ export default class Page extends HTMLElement {
         }else if ( attrName == "appear"){
             if(newValue == "ok"){
                 this.$page.classList.remove("disappear")
+                this.$page.classList.add("page-appear")
                 selectThisPage(this)
             }else{
                 this.$page.classList.add("disappear")
+                this.$page.classList.remove("page-appear")
             }
             // console.log("data trang nay: " + this.dataHTML);
         }

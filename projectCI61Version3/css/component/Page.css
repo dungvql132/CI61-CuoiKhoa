@@ -5,3 +5,13 @@
     margin: auto;
     position: relative;
 }
+
+.page-appear{
+    animation-name: pageAppear ;
+    animation-duration: 0.8s;
+}
+
+@keyframes pageAppear {
+    from{height: 0%;width: 0%;}
+    to{height: 100%;width: 100%;}
+}
