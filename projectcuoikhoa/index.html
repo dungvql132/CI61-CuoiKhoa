@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+<!-- cai nay la animation -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="./designVsReadStory/css/app.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCYt-lCKWhVhY5694SYj-VbEFcGkQdhVcQ",
+    authDomain: "webstory-ce2fc.firebaseapp.com",
+    projectId: "webstory-ce2fc",
+    storageBucket: "webstory-ce2fc.appspot.com",
+    messagingSenderId: "264897425510",
+    appId: "1:264897425510:web:85dbe01fa5bdc053463da7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/navigo/7.1.3/navigo.min.js"
+      integrity="sha512-T5Jaw8KOeloIRJz6TfFWDNqeTwMnLTXf2amscWwmNmIPmrAjPdl47fupdu7TrX3eSVuS1NElEfw0h2+0SsNxaQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="//unpkg.com/navigo@6"></script>
+
+  </head>
+  <body>
+    <div id="container">
+      <!-- <nav-bar></nav-bar>
+      <avatar-grid></avatar-grid> -->  
+    </div>
+
+    <script src="./js/main.js" type="module"></script>
+    <script src="./js/component/presentStory.js" type="module"></script>
+
+    <!-- xử lý tạo story -->
+    <script src="./designVsReadStory/js/app.js" type="module"></script>
+    <script src="./designVsReadStory/js/dataProcessing/FormAction.js"></script>
+    <script src="./designVsReadStory/js/component/InputWrapper.js" type="module"></script>
+    <script src="./designVsReadStory/js/event/design-areaEvent.js" type="module"></script>
+    <script src="./designVsReadStory/js/dataProcessing/MovingTextBox.js"></script>
+    <script src="./designVsReadStory/js/component/TextBox.js" type="module"></script>
+    <script src="./designVsReadStory/js/component/Page.js"  type="module"></script>
+    <script src="./designVsReadStory/js/dataProcessing/firebase.js" type="module"></script>
+    <script src="./designVsReadStory/screen/DesignScreen.js" type="module"></script>
+  </body>
+</html>
+
