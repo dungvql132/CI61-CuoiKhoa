@@ -16,9 +16,11 @@ import SearchScreen from "./component/categoryScreen/searchScreen.js";
 
 const loggedUser = await firebase.auth().currentUser;
 if (loggedUser != null) {
+  console.log("ko null");
   router.navigate("/home");
   console.log("da dang nhap");
 } else {
+  console.log("null");
   router.navigate("/login"); // Sau sẽ sửa thành '/login'
   console.log("chua dang nhap");
 }
