@@ -4,7 +4,7 @@ export default class FormData{
 
     static _animation = ["fadeIn","fadeInDown","fadeInLeft","fadeInRight","fadeInUp","fadeInTopLeft","fadeInTopRight",
                         'fadeInBottomLeft','fadeInBottomRight',"flipInX","flipInY","lightSpeedInRight","lightSpeedInLeft",
-                        "rollIn","zoomIn","slideInDown","slideInLeft","slideInRight","slideInUp", "animate__zoomInDown","animate__zoomInLeft","animate__zoomInUp"];
+                        "rollIn","zoomIn","slideInDown","slideInLeft","slideInRight","slideInUp", "zoomInDown","zoomInLeft","zoomInUp"];
     static animation = JSON.stringify(this._animation);
 
     static _borderStyle = ["dashed","dotted","solid","double","groove","hidden","transparent"];

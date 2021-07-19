@@ -57,21 +57,3 @@ export default class SearchScreen extends HTMLElement {
 }
 
 window.customElements.define("search-screen", SearchScreen);
-
-// chay contructor
-let a; // <search-screen></search-screen>
-a = document.createElement("search-screen"); // neu this.$naturalScreen = this.querySelector(".search-screen"); o constuctor thi ko dung dc
-a = new SearchScreen();
-
-// thay doi gia tri => chay attributeChangedCallback;
-a.data = "dung"; // set
-a.setAttribute("data", "dung");
-
-let b = a.data; // get
-b = a.getAttribute("data");
-
-// khi cai component hien thi len html thi => chay connectedCallback
-document.querySelector("body").appendChild(a);
-
-// remove
-document.querySelector("body").removeChild(a);

@@ -11,16 +11,14 @@ import HumanScreen from "./component/categoryScreen/HumanScreen.js";
 import LoveScreen from "./component/categoryScreen/LoveScreen.js";
 import NaturalScreen from "./component/categoryScreen/NaturalScreen.js";
 import TopBar from "./TopBar.js";
-// import SearchScreen from "./component/categoryScreen/searchScreen.js";
+import SearchScreen from "./component/categoryScreen/searchScreen.js";
 
 
 const loggedUser = await firebase.auth().currentUser;
 if (loggedUser != null) {
-  console.log("ko null");
   router.navigate("/home");
   console.log("da dang nhap");
 } else {
-  console.log("null");
   router.navigate("/login"); // Sau sẽ sửa thành '/login'
   console.log("chua dang nhap");
 }
