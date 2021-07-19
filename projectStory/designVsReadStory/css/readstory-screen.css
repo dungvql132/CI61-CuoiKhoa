@@ -1,0 +1,83 @@
+#read-story{
+    width: 100%;
+    height: 100vh;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ben trai */
+#read-story-left{
+    width: 10%;
+    height: 100%;
+    border: 2px solid black;
+    transition: 0.5s;
+}
+#read-story-left:hover{
+    margin-right: 10%;
+    transition: 0.5s;
+    width: 15%;
+    font-size: 150%;
+}
+
+.logo{
+    height: 10%;
+    width: 100%;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100%;
+}
+
+/* ben phai */
+#read-story-right{
+    margin-right: 1%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nut bam */
+#read-story-right > button{
+    height: 100%;
+    width: 10%;
+    background-color: lightgray;
+}
+#read-story-right > button:hover{
+    background-color: gray;
+}
+
+
+
+.arrow-change-page{
+    width: 80%;
+    height: 10%;
+}
+
+#read-story-right > div {
+    height: 100%;
+    width: 80%;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+#read-story-right > div > p{
+    margin-top: 1%;
+    font-size: larger;
+}
+
+#cover-story{
+    height: 90%;
+    width: 50%;
+    border: 2px solid black;
+    position: relative;
+}
+
+/* 1 so cai phu tro */

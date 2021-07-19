@@ -1,0 +1,14 @@
+.js-story{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /* transform: scale(0.5,0.5); */
+    margin-top: 0px;
+}
+
+#cover-story{
+    height: 90%;
+    width: 50%;
+    margin: auto;
+    position: relative;
+}

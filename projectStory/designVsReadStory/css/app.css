@@ -1,0 +1,33 @@
+@import url(designWeb/mainWeb.css);
+@import url(component/InputWrapper.css);
+@import url(component/DesignForm.css);
+@import url(component/TextBox.css);
+@import url(component/Page.css);
+@import url(component/Story.css);
+@import url(designArea.css);
+@import url(readstory-screen.css);
+
+*{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+button{
+    background-size: contain;
+}
+
+.ngang{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+p{
+    display: inline;
+    font-size: 20px;
+}

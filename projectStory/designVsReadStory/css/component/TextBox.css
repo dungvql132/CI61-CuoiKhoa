@@ -1,0 +1,12 @@
+.text-box-picked{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
+    z-index: 100;
+}
+
+.js-div{
+    word-break: break-all;
+    /* overflow: hidden; */
+    background-size: cover;
+    position: absolute;
+    user-select: none;
+}

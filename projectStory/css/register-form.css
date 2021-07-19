@@ -1,0 +1,56 @@
+@import url(./input-wrapper.css);
+* {
+  font-family: 'Roboto Slab', serif;
+}
+
+html {
+  background-size: cover;
+background-color: #F0F0F0;
+}
+
+.register-form {
+  text-align: center;
+  font-size: 30px;
+  margin: 10% auto;
+  border: none;
+  border-radius: 20px;
+  width: 60%;
+  padding: 30px;
+  background-color: white;
+  opacity: 95%;
+  transition: 0.8s;
+
+}
+
+.register-form > a {
+  font-size: 15px;
+}
+
+.register-form .register-btn {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  background-color: rgb(29, 89, 219);
+  color: #ffffff;
+  margin-top: 30px;
+  padding: 5% auto;
+  border-radius: 10px;
+  border: none;
+}
+
+.register-btn:hover {
+  cursor: pointer;
+}
+
+.register-form:hover {
+  transform: scale(1.1);
+  transition: 0.8s;
+}
+
+.register-form p {
+    font-size: 15px;
+}
+
+.register:hover {
+  cursor: pointer;
+}

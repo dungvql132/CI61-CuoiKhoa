@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.present-story {
+  margin: 3%;
+  display: flex;
+}
+.profile-pic img {
+  width: 300px;
+  height: 500px;
+}
+
+.avatar-story {
+    width: 30%;
+    padding: 2%;
+}
+.detail-story {
+    width: 70%;
+    padding: 2%;
+}
+
+.avatar-story > * {
+    margin-bottom: 5%;
+}
+.detail-story > * {
+    margin-bottom: 2%;
+
+}
+
+.text-story {
+    font-size: 18px;
+}
+.read-story {
+    width: 150px;
+    height: 50px;
+    margin-right: 3%;
+    border: none;
+    border-radius: 10px;
+    background-color: cadetblue;
+    font-size: 20px;
+    color: #ffffff;
+}
+.modify-story {
+    width: 150px;
+    height: 50px;
+    margin-right: 3%;
+    border: none;
+    border-radius: 10px;
+    background-color: cadetblue;
+    font-size: 20px;
+    color: #ffffff; 
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+ span  {
+    color: rgb(0, 102, 255);
+}
+
+.btn-story {
+    display: flex;
+}
+
+.descript {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    padding: 2%;
+}

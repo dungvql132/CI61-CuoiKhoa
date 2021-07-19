@@ -1,0 +1,21 @@
+#design-area{
+    display: flex;
+    flex-direction: row;
+}
+
+.design-field{
+    height: 100%;
+    width: 82%;
+    position: relative;
+}
+
+.btn-changepage{
+    background-color: white;
+    height: 100%;
+    width: 8%;
+}
+
+.btn-changepage:hover{
+    transition: 0.5s;
+    background-color: grey;
+}

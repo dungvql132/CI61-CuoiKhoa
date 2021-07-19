@@ -1,0 +1,24 @@
+
+#design{
+    height: 100vh;
+    width: 100%;
+    border: 3px solid black;
+}
+
+.flex{
+    display: flex;
+}
+
+#design-area{
+    height: 100%;
+    width: 75%;
+    border: 3px solid black;
+    position: relative;
+    /* transform: scale(0.5,0.5); */
+}
+
+#design-form{
+    height: 100%;
+    width: 25%;
+    border: 3px solid black;
+}
